@@ -23,7 +23,7 @@ class LoggerTest extends \PHPUnit_Framework_TestCase {
 	private $writer;
 
 	public function setUp() {
-		$this->writer = $this->getMock(\Kronos\Log\WriterInterface::class);
+		$this->writer = $this->createMock(\Kronos\Log\WriterInterface::class);
 
 		$this->logger = new Logger();
 		$this->logger->addWriter($this->writer);

@@ -17,7 +17,7 @@ class LoggerAwareTest extends \PHPUnit_Framework_TestCase {
 	private $trait;
 
 	public function setUp() {
-		$this->logger = $this->getMockWithoutInvokingTheOriginalConstructor(Logger::class);
+		$this->logger = $this->createMock(Logger::class);
 
 		$this->trait = new TestableLoggerAware();
 	}

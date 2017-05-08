@@ -25,7 +25,7 @@ class SyslogTest extends \PHPUnit_Framework_TestCase {
 	private $syslog_adaptor;
 	
 	public function setUp() {
-		$this->syslog_adaptor = $this->getMock(\Kronos\Log\Adaptor\Syslog::class);
+		$this->syslog_adaptor = $this->createMock(\Kronos\Log\Adaptor\Syslog::class);
 
 		$this->writer = new \Kronos\Log\Writer\Syslog($this->syslog_adaptor, self::APPLICATION, self::SYSLOG_OPTION, self::SYSLOG_FACILITY);
 	}

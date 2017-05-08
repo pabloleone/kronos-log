@@ -36,7 +36,7 @@ class FileTest extends \PHPUnit_Framework_TestCase {
 	public function setUp() {
 		$this->adaptor = $this->getMockBuilder(\Kronos\Log\Adaptor\File::class)->disableOriginalConstructor()->getMock();
 
-		$this->factory = $this->getMock(\Kronos\Log\Adaptor\FileFactory::class);
+		$this->factory = $this->createMock(\Kronos\Log\Adaptor\FileFactory::class);
 	}
 
 	public function test_NewWriter_Constructor_ShouldCreateNewFile() {
@@ -131,7 +131,7 @@ class FileTest extends \PHPUnit_Framework_TestCase {
 	
 	public function test_Writer_SetContextStringify_ShouldExcludeExceptionKey() {
 		$this->givenFactoryReturnAdaptor();
-		$context_stringifier = $this->getMock(ContextStringifier::class);
+		$context_stringifier = $this->createMock(ContextStringifier::class);
 		$context_stringifier
 			->expects($this->once())
 			->method('excludeKey')
@@ -151,7 +151,7 @@ class FileTest extends \PHPUnit_Framework_TestCase {
 			[File::CONTEXT_TITLE_LINE],
 			[self::STRINGIFIED_CONTEXT]
 		]);
-		$context_stringifier = $this->getMock(ContextStringifier::class);
+		$context_stringifier = $this->createMock(ContextStringifier::class);
 		$context_stringifier
 			->expects($this->once())
 			->method('stringify')
